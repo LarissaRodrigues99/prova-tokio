@@ -8,8 +8,10 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.time.Instant;
 import java.util.List;
+import java.util.UUID;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Table(name="clients")
 @Entity
@@ -20,19 +22,22 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Clients {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "first_name")
-    private String first_name;
+    @NotNull
+    @Column(name = "firstName")
+    private String firstName;
 
-    @Column(name = "last_name")
-    private String last_name;
+    @Column(name = "lastName")
+    private String lastName;
 
+    @NotNull
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "clients")
     private List<Addresses> addresses;
 
     @CreationTimestamp

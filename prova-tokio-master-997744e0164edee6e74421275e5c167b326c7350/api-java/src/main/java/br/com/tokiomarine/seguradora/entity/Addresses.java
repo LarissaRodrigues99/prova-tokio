@@ -8,6 +8,7 @@ import javax.persistence.*;
 import java.time.Instant;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
 
 @Table(name="addresses")
 @Entity
@@ -18,24 +19,28 @@ import javax.persistence.Id;
 @NoArgsConstructor
 public class Addresses {
         @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
         @Column(name = "id")
         private Long id;
 
         @ManyToOne
+        @NotNull
         @JoinColumn(name = "id_client")
-        private Clients client;
+        private Clients clients;
 
+        @NotNull
         @Column(name = "address")
         private String address;
 
+        @NotNull
         @Column(name = "number")
         private String number;
 
         @Column(name = "complement")
         private String complement;
 
-        @Column(name = "postal_code")
-        private String postal_code;
+        @Column(name = "postalCode")
+        private String postalCode;
 
         @Column(name = "city")
         private String city;
