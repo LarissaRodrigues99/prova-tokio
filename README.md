@@ -19,7 +19,6 @@ Este projeto implementa um CRUD para as entidades `Clients` e `Addresses`. As fu
 
 - **Create (POST)**: Criar um novo cliente ou endereço.
 - **Read (GET)**: Listar clientes ou endereços existentes.
-- **Update (PUT)**: Atualizar informações de clientes ou endereços.
 - **Delete (DELETE)**: Deletar clientes ou endereços.
 
 ## Estrutura do Projeto
