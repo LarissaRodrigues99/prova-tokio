@@ -225,6 +225,4 @@ Envie um pull request para a branch `main` do repositório original.
 Esse formato agora segue o estilo de código para as instruções e exemplos, como você solicitou. Assim, é possível copiar e colar diretamente no seu `README.md` para que o conteúdo tenha uma boa formatação e legibilidade.
 ```
 
-Esse formato agora segue o estilo de código para as instruções e exemplos, como você solicitou. Assim, é possível copiar e colar diretamente no seu `README.md` para que o conteúdo tenha uma boa formatação e legibilidade.
-
 
