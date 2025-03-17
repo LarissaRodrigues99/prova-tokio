@@ -180,13 +180,14 @@ mvn spring-boot:run
 O projeto estará rodando no localhost na porta `8080`.
 
 ## Testando as APIs com Insomnia
-Use o Insomnia para testar as requisições REST do seu CRUD. Abaixo estão os endpoints principais que você pode testar:
+Use o **Insomnia** para testar as requisições REST do seu CRUD. Abaixo estão os endpoints principais que você pode testar:
 
-GET `/v1/clients/{id}` - Obtém um cliente pelo ID.
-POST `/v1/clients` - Cria um novo cliente.
-PUT `/v1/clients/{id}` - Atualiza um cliente existente.
-DELETE `/v1/clients/{id}` - Deleta um cliente.
-Exemplo de requisição para criar um cliente (`POST`):
+**GET** `/v1/clients/{id}` - Obtém um cliente pelo ID.
+**POST** `/v1/clients` - Cria um novo cliente.
+**PUT** `/v1/clients/{id}` - Atualiza um cliente existente.
+**DELETE** `/v1/clients/{id}` - Deleta um cliente.
+
+### Exemplo de requisição para criar um cliente (`POST`):
 
 ```json
 {
@@ -227,4 +228,3 @@ Esse formato agora segue o estilo de código para as instruções e exemplos, co
 Esse formato agora segue o estilo de código para as instruções e exemplos, como você solicitou. Assim, é possível copiar e colar diretamente no seu `README.md` para que o conteúdo tenha uma boa formatação e legibilidade.
 
 
-**
