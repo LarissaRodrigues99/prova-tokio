@@ -1,12 +1,12 @@
 package br.com.tokiomarine.seguradora.service;
 
-import org.apache.tomcat.jni.Address;
+import br.com.tokiomarine.seguradora.entity.Addresses;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Mono;
 
 @Service
-public class CepServise {
+public class CepService {
 
     private final WebClient webClient;
 
@@ -14,10 +14,10 @@ public class CepServise {
         this.webClient = webClientBuilder.baseUrl("https://api.brasilaberto.com/v1/zipcode").build();
     }
 
-    public Mono<Address> getAddressByCep(String cep) {
+    public Mono<Addresses> getAddressesByCep(String cep) {
         return webClient.get()
                 .uri("/{cep}", cep)
                 .retrieve()
-                .bodyToMono(Address.class);
+                .bodyToMono(Addresses.class);
     }
 }
