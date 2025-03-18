@@ -1,23 +1,18 @@
 package br.com.tokiomarine.seguradora.entity;
 
-
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import javax.persistence.*;
+import jakarta.persistence.Table;
 import java.time.Instant;
 import java.util.List;
-import java.util.UUID;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
-@Table(name="clients")
 @Entity
+@Table(name = "clients")
 @EqualsAndHashCode(of= "id")
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Clients {
@@ -26,18 +21,16 @@ public class Clients {
     @Column(name = "id")
     private Long id;
 
-    @NotNull
-    @Column(name = "firstName")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "lastName")
+    @Column(name = "last_name")
     private String lastName;
 
-    @NotNull
     @Column(name = "email")
     private String email;
 
-    @OneToMany(mappedBy = "clients")
+    @OneToMany(mappedBy = "client")
     private List<Addresses> addresses;
 
     @CreationTimestamp
