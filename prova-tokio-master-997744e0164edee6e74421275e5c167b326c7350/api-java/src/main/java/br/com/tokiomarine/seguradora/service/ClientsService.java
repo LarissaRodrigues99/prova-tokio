@@ -5,8 +5,6 @@ import br.com.tokiomarine.seguradora.repository.ClientsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
-
 @Service
 public class ClientsService {
     @Autowired
