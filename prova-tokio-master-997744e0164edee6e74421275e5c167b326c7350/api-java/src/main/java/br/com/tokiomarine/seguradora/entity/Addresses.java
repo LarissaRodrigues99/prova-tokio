@@ -6,15 +6,13 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.Instant;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.validation.constraints.NotNull;
 
-@Table(name="addresses")
+import javax.persistence.Id;
+
 @Entity
+@Table(name ="addresses")
 @EqualsAndHashCode(of= "id")
-@Getter
-@Setter
+@Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Addresses {
@@ -23,23 +21,20 @@ public class Addresses {
         @Column(name = "id")
         private Long id;
 
+        @JoinColumn(name = "id_client", referencedColumnName = "id")
         @ManyToOne
-        @NotNull
-        @JoinColumn(name = "id_client")
-        private Clients clients;
+        private Clients client;
 
-        @NotNull
         @Column(name = "address")
         private String address;
 
-        @NotNull
         @Column(name = "number")
         private String number;
 
         @Column(name = "complement")
         private String complement;
 
-        @Column(name = "postalCode")
+        @Column(name = "postal_code")
         private String postalCode;
 
         @Column(name = "city")
@@ -56,4 +51,5 @@ public class Addresses {
 
         @UpdateTimestamp
         private Instant updateTimestamp;
+
 }
