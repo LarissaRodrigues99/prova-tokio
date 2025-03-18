@@ -2,42 +2,29 @@ package br.com.tokiomarine.seguradora.controller;
 
 import br.com.tokiomarine.seguradora.entity.Addresses;
 import br.com.tokiomarine.seguradora.repository.AddressesRepository;
+import br.com.tokiomarine.seguradora.service.CepService;
 
-import br.com.tokiomarine.seguradora.service.AddressesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/v1/addresses")
 public class AddressesController {
 
     @Autowired
-    private AddressesRepository repository;
+    private AddressesRepository addressesRepository;
 
     @Autowired
-    private AddressesService addressesService;
+    private CepService cepService;
 
-    @GetMapping
-    public ResponseEntity gerAlladdresses(){
-        var allUsers = repository.findAll();
-        return ResponseEntity.ok(allUsers);
+    @PostMapping("/add")
+    public Addresses addAddresses(@RequestBody Addresses addresses) {
+        return addressesRepository.save(addresses);
     }
 
-    @PostMapping
-    public ResponseEntity<Addresses> createAddresses(@RequestBody Addresses addresses) {
-        Addresses savedAddresses = addressesService.createAddresses(addresses);
-        return new ResponseEntity<>(savedAddresses, HttpStatus.CREATED);
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletById(@PathVariable("id") Long id){
-
-        addressesService.deleteById(id);
-        return ResponseEntity.noContent().build();
+    @GetMapping("/by-cep/{cep}")
+    public Addresses getAddressByCep(@PathVariable String cep) {
+        return cepService.getAddressesByCep(cep).block();
     }
 
 }
